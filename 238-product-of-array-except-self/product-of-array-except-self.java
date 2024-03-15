@@ -18,15 +18,14 @@ class Solution {
         // }
         // return res;
         //1ms Answer method
-        int n = nums.length;
-        int[] ans = new int[n];
+        int[] ans = new int[nums.length];
         int prod = 1;
-        for(int i = 0;i<n;i++) {
+        for(int i = 0;i<nums.length;i++) {
             ans[i] = prod;
             prod = prod * nums[i];
         }
         prod = 1;
-        for(int i=n-1;i>=0;i--){
+        for(int i=nums.length-1;i>=0;i--){
             ans[i] = ans[i] * prod;
             prod = prod * nums[i];
         }
