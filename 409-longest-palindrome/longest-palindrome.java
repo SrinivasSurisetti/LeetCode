@@ -8,16 +8,16 @@ class Solution {
             else{
                 charct.put(c,1);
             }
-        }
+        } 
         int count = 0;
-        boolean hasOdd = false;
+        int flag = 0;
         for(Map.Entry<Character,Integer> entry : charct.entrySet()){
             int val = entry.getValue();
             if(val%2 == 1){
-                hasOdd = true;
+                flag = 1;
             }
-            count += val/2*2;
+            count += (val/2)*2;
         }
-        return hasOdd ? count+1 : count;
+        return count+flag;
     }
 }
