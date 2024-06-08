@@ -1,0 +1,31 @@
+class StringClass
+{
+public static void main(String args[])
+{
+String name="ADITYA";
+String name1="college";
+String name3="";
+String name4="Aditya College of Engineering and Technology";
+String name5=" Aditya College of Engineering and Technology ";
+char ch=name.charAt(4);//returns the char value at the 4th index
+System.out.println(ch);
+System.out.println("string length is: "+name.length());
+System.out.println("sub string example: "+name.substring(2,4));
+System.out.println("contains example: "+name.contains("IT"));
+System.out.println("join example: "+String.join("-","02","07","2021"));
+System.out.println("equals example: "+name.equals(name1));
+System.out.println("concat example: "+name.concat(name1));
+System.out.println("replace example: "+name.replace('a','A'));
+System.out.println("isEmpty example: "+name3.isEmpty());
+System.out.println("isEmpty example: "+name1.isEmpty());
+System.out.println("name 4 before spliting: "+name4);
+String s[]=name4.split("\\s");
+for(String word:s)
+System.out.println(word);
+System.out.println("indexof example: "+name.indexOf('t'));
+System.out.println("tolowercase example: "+name.toLowerCase());
+System.out.println("touppercase example: "+name1.toUpperCase());
+System.out.println("name 5 is:-"+name5);
+System.out.println("trim example: "+name5.trim());
+}
+}
