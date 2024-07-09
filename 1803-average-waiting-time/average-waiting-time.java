@@ -1,17 +1,25 @@
 class Solution {
     public double averageWaitingTime(int[][] customers) {
-        double avg=0;
-        int fintime=customers[0][0];
-        for(int i = 0;i<customers.length;i++){
-                if(customers[i][0]<=fintime){
-                    fintime+=customers[i][1];
-                    avg += (fintime-customers[i][0]);
-                }
-                else {
-                    fintime = customers[i][0]+customers[i][1];
-                    avg += (fintime-customers[i][0]); 
-                }
+        double totalWaitTime = 0;
+        int finishTime = 0;
+        
+        for (int[] customer : customers) {
+            int arrivalTime = customer[0];
+            int prepTime = customer[1];
+            
+            // If the chef is idle, he starts at the customer's arrival time
+            if (finishTime < arrivalTime) {
+                finishTime = arrivalTime;
+            }
+            
+            // Calculate the finish time for the current order
+            finishTime += prepTime;
+            
+            // Calculate the waiting time for the current customer
+            int waitTime = finishTime - arrivalTime;
+            totalWaitTime += waitTime;
         }
-        return avg/customers.length;
+        
+        return totalWaitTime / customers.length;
     }
 }
