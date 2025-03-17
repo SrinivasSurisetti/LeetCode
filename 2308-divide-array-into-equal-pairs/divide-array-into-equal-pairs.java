@@ -1,14 +1,22 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public boolean divideArray(int[] nums) {
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int ele : nums){
-            map.put(ele,map.getOrDefault(ele,0)+1);
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        // Count occurrences of each element
+        for (int num : nums) {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
         }
-        int count = 0;
-        Set<Integer> uniq = map.keySet(); 
-        for(int ele : uniq){
-            if(map.get(ele)%2==0) count+=map.get(ele)/2;
+
+        // Check if all counts are even
+        for (int count : countMap.values()) {
+            if (count % 2 != 0) {
+                return false;
+            }
         }
-        return count==nums.length/2;
+
+        return true;
     }
 }
